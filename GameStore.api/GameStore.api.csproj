@@ -11,10 +11,12 @@
   <ItemGroup>
     <None Remove="Entities\" />
     <None Remove="Endpoints\" />
+    <None Remove="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="Endpoints\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MinimalApis.Extensions" Version="0.11.0" />
