@@ -1,5 +1,5 @@
 # Module 4
-
+https://www.youtube.com/watch?v=bKCzoR01lpE&t=4304s&ab_channel=JulioCasal
 ### Design Patterns and Best Practices
 - User repository pattern for better data maniupulation
 - Use the dependency injection pattern for more maintable code
@@ -39,3 +39,26 @@ Dependency Inversion Principle
 - Moving to the cloud, we could use a cloud logger class
 - MyService depends on Ilogger interface (MyLogger, Cloudlogger depends on Ilogger allowing for decoupling) )
 Service Life Times
+    When should instances be created?
+    What happens if a new request comes in when a new request arrives (should it use new or original instance)\
+    What happens if another service also uses the instance of Illogger?
+
+    There are three lifetimes
+    1. Transient - very lightweight and statless, ok to create a new instance AddTransient method.
+        a new request would generate a new instance
+    2. Scoped - class that keeps track of some sort of state shared accross classes, AddCode Method. Request arrives will
+        get an instance. If thee is any other service in the same request, the same instance.
+        A new http request will generate a new instance
+    3. Singleton - not cheap to instanation and only once instance should be used. When HTTP request arrives, an instance is created but if a new request comes in, the same instance
+        is used until application is closed.
+
+
+Understanding Data Transfer Objects
+
+    DTO - encapsulates data in a format and can be transmitted between applications or layers of applicatiosn
+        Contract between client and a server
+        Why use DTOs? - consider what could happen if requirements change and asked to rename properties and storing secret code for internal use only.
+                      - We are sending these new attributes to client which may break or reveal data to the client.
+                      - Client should only recieve what was asked for
+         
+        

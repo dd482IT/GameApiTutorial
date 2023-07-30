@@ -1,0 +1,34 @@
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace GameStore.api.Dtos
+{
+    public record GameDto(
+
+        int Id,
+        string Name,
+        string Genre,
+        decimal Price,
+        DateTime ReleaseDate,
+        string ImageURI
+
+    );
+
+    public record CreateGameDto(
+        [Required][StringLength(50)] string Name,
+        [StringLength(50)]  string Genre,
+        [Range (1,100)] decimal Price,
+        DateTime ReleaseDate,
+        [Url][StringLength(100)]string ImageURI
+    );
+
+	public record UpdateGameDto(
+        [Required][StringLength(50)] string Name,
+        [StringLength(50)] string Genre,
+        [Range(1, 100)] decimal Price,
+        DateTime ReleaseDate,
+        [Url][StringLength(100)] string ImageURI
+    );
+
+}
+

@@ -5,7 +5,7 @@ namespace GameStore.api.Entities
 {
 	public class Game
 	{
-		public int id { get; set; }
+		public int Id { get; set; }
         // Annotations require NuGet Packages
         // Package Management for .NET 
 		[Required]
@@ -22,10 +22,6 @@ namespace GameStore.api.Entities
         [StringLength(100)]
         public required string ImageURI { get; set; }
 
-        //Constructor
-        public Game()
-		{
-		}
 	}
 }
 
