@@ -53,7 +53,7 @@ Service Life Times
         is used until application is closed.
 
 
-Understanding Data Transfer Objects
+## Understanding Data Transfer Objects
 
     DTO - encapsulates data in a format and can be transmitted between applications or layers of applicatiosn
         Contract between client and a server
@@ -61,4 +61,42 @@ Understanding Data Transfer Objects
                       - We are sending these new attributes to client which may break or reveal data to the client.
                       - Client should only recieve what was asked for
          
-        
+       
+## Database Connection String
+
+
+
+## Secrets Management
+1. Init Secret Manager
+2. User Secret ID should be listed in project file automatically 
+
+# Entity Framework Core - Modify data using only C#
+1. Use database migrations 
+2. Implement an entity framework
+3. Use database migrations 
+4. Implement an Entity Framework repository 
+5. Use the async programming model.
+
+The need for Object Relation Mapping
+    Web api is in C#, Sql only understands SQL. 
+    C# needs to translate query so that SQL (T-SQL) can understand it.
+    This must run the SQL query and return the rows so that C# can use it 
+    This muse be optimized for good performance. 
+    Need to manually keep C# model models in sync with DB tables
+
+What is O/RM?
+    Objects to represent (games, users etc). O/RM allows for the translation between objects in C# and the databases that store the data of those objects. 
+    This is Entity Framework Core - a lightweight extensible open source and cross platform object relation mapper for .NET. 
+
+    Benefits - 
+        No need to become a master of SQL, minimal data access code (LINQ) 
+        Keep track of changes to objects 
+        Tooling to keep C# models in sync with DB tables. 
+        Multiple database solution support. 
+
+    
+    to create a Dbcontext class, make sure it inhereits from DbContext class
+    DBcontext can act is a repository, so why do we need one defined (igames, inmems)
+    We don't want to tie/inject the Dbcontext directly with apis instead of using the repository? 
+       --> This is because the repository acts as an interface between the API and the database. 
+       --> This means our endpoints would be coupled, if we want to move to NoSQL or we need to scale, we would need to make a lot of changes to the endpoints. 
